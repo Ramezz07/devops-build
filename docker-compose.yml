@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    image: ${IMAGE_NAME}
+    ports:
+      - "80:80"
+    container_name: ${CONTAINER_NAME}
+
+
