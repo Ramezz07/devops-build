@@ -1,0 +1,6 @@
+build.sh
+deploy.sh      
+docker-compose.yml
+.gitignore
+.git
+
