@@ -6,15 +6,7 @@ pipeline {
         CONTAINER_NAME = "myproj"
     }
 
-    stages {
-
-        stage('Checkout Code') {
-            steps {
-                git branch: 'main',
-                    url: 'git@github.com:Ramezz07/devops-build.git'
-            }
-        }
-
+ 
         stage('Build Docker Image') {
             steps {
                 sh '''
