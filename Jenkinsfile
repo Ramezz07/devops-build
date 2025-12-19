@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        IMAGE_NAME = "Ramezz07/myproj:latest"
+        IMAGE_NAME = "$docker_username/myproj:latest"
         CONTAINER_NAME = "myproj"
     }
 
