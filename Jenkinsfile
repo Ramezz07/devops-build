@@ -6,7 +6,8 @@ pipeline {
         CONTAINER_NAME = "myproj"
     }
 
- 
+     stages{
+
         stage('Build Docker Image') {
             steps {
                 sh '''
