@@ -1,0 +1,27 @@
+name: Build and Deploy to EKS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+
+    steps:
+    - name: source code
+      uses: actions/checkout@v4
+
+    - name: Login to Amazon ECR
+      run: aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 448769618258.dkr.ecr.us-east-1.amazonaws.com
+
+    - name: Build Docker image
+      run: docker build -t 448769618258.dkr.ecr.us-east-1.amazonaws.com/myproj:v1 .
+
+    - name: Push Docker image
+      run: docker push 448769618258.dkr.ecr.us-east-1.amazonaws.com/myproj:v1
+
+    - name: Deploy to EKS
+      run: kubectl apply -n r1 -f k8s/deployment.yml
+
