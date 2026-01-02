@@ -1,9 +1,7 @@
-version: '3.8'
-
 services:
   web:
     build: .
-    image: ${IMAGE_NAME}
-    container_name: ${CONTAINER_NAME}
+    image: myproj
+    container_name: myproject
     ports:
-      - "80:80"
+      - "7070:80"
